@@ -5,9 +5,9 @@
  *
  * Return: The singly linked list with the new number added
  */
-listint_t *insert_node(listint_t head, int number)
+listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *list_current = NULL, *Newnodo = NULL, temp = NULL;
+	listint_t *list_current = NULL, *Newnodo = NULL, *temp = NULL;
 
 	Newnodo = malloc(sizeof(listint_t));
 	if (Newnodo == NULL)
