@@ -9,14 +9,15 @@ if __name__ == "__main__":
     else:
         a = int(sys.argv[1])
         b = int(sys.argv[3])
-        if sys.argv[2] == "+":
-            print("{:d} {} {:d} = {:d}".format(a, sys.argv[2], b, add(a, b)))
-        elif sys.argv[2] == "-":
-            print("{:d} {} {:d} = {:d}".format(a, sys.argv[2], b, sub(a, b)))
-        elif sys.argv[2] == "*":
-            print("{:d} {} {:d} = {:d}".format(a, sys.argv[2], b, mul(a, b)))
-        elif sys.argv[2] == "*":
-            print("{:d} {} {:d} = {:d}".format(a, sys.argv[2], b, div(a, b)))
+        op = sys.argv[2]
+        if op == "+":
+            print("{:d} {} {:d} = {:d}".format(a, op, b, add(a, b)))
+        elif op == "-":
+            print("{:d} {} {:d} = {:d}".format(a, op, b, sub(a, b)))
+        elif op == "*":
+            print("{:d} {} {:d} = {:d}".format(a, op, b, mul(a, b)))
+        elif op == "*":
+            print("{:d} {} {:d} = {:d}".format(a, op, b, div(a, b)))
         else:
             print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
