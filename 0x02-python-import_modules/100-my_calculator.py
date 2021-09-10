@@ -16,7 +16,7 @@ if __name__ == "__main__":
             print("{:d} {} {:d} = {:d}".format(a, op, b, sub(a, b)))
         elif op == "*":
             print("{:d} {} {:d} = {:d}".format(a, op, b, mul(a, b)))
-        elif op == "*":
+        elif op == "/":
             print("{:d} {} {:d} = {:d}".format(a, op, b, div(a, b)))
         else:
             print("Unknown operator. Available operators: +, -, * and /")
