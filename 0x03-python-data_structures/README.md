@@ -46,8 +46,4 @@ Advanced:
 Jhon Smith Flores - [Github](https://github.com/tu/URL) - [Twiter](https://twitter.com/Luffy_981) - [Facebook](https://web.facebook.com/JhonSmithSoulOfGold)
 
 
-:monkey: :monkey: :monkey:
-
-+----------------------------------------+
-|https://github.com/Luffy981/holbertonschool-higher_level_programming.git|
-+----------------------------------------+
+# :monkey:	:monkey:	:monkey:
