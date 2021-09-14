@@ -11,6 +11,6 @@ if __name__ == "__main__":
     op = argv[2]
     f = {"+": add, "-": sub, "*": mul, "/": div}
     if op not in f:
-        print("Unknown operator, Available operators: +, -, * and /")
+        print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     print("{:d} {:s} {:d} = {:d}".format(a, op, b, f[op](a, b)))
