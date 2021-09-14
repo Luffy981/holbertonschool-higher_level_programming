@@ -7,7 +7,7 @@
 int is_palindrome(listint_t **head)
 {		  
 	listint_t *vodka = *head;	
-	listint_t *vino = *head;\	
+	listint_t *vino = *head;	
 	listint_t *ron = NULL;		
 	int count = 0;	
 	int ver = 0;	
