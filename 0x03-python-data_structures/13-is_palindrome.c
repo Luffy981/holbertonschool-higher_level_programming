@@ -12,25 +12,31 @@ int is_palindrome(listint_t **head)
 	int count = 0;	
 	int ver = 0;	
 
-	while(vino->next != NULL)	
+	if (head == NULL)
+		return (1);
+	while (vino->next != NULL)	
 	{	
 		vino = vino->next;		
 		count += 1;		
 	}
-	while(ver < count/2)
+	 if (count % 2 != 0)
+	 {
+		 count -= 1;	
+	 }
+	while (ver < count/2)
 	{
-		if(vodka->n != vino->n)	
+		if (vodka->n != vino->n)	
 		{
-			return(0);	
+			return (0);	
 		}
 		vodka = vodka->next;
 		ron = vodka;
-		while(ron->next != vino)
+		while (ron->next != vino)
 		{
 			ron = ron->next;	
 		}
 		vino = ron;	
 		ver++;		
 	}	
-	return(1);
+	return (1);
 }
