@@ -14,5 +14,6 @@ def list_division(my_list_1, my_list_2, list_length):
             pass
     if len(my_list_1) != len(my_list_2):
         print("out of range")
+        res.append(0)
 
     return res
