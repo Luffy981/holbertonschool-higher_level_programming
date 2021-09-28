@@ -4,4 +4,4 @@ def raise_exception_msg(message=""):
         luffy = "Hola mundo"
         prit(luffy)
     except NameError:
-        print("C is fun")
+        print(message)
