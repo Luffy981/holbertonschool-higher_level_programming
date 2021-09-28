@@ -3,10 +3,11 @@ def list_division(my_list_1, my_list_2, list_length):
     res = []
     for i, j in zip(my_list_1, my_list_2):
         try:
-            res.append(i / j)
             if i not in my_list_1 or j not in my_list_2:
                 print("out of range")
                 res.append()
+            else:
+                res.append(i / j)
         except ZeroDivisionError:
             print("division by 0")
             res.append(0)
