@@ -4,9 +4,9 @@ def list_division(my_list_1, my_list_2, list_length):
     for i, j in zip(my_list_1, my_list_2):
         try:
             res.append(i / j)
-            if i not in my_list_1  or  j not in my_list_2:
+            if i not in my_list_1 or j not in my_list_2:
                 print("out of range")
-                res.append(0)
+                res.append()
         except ZeroDivisionError:
             print("division by 0")
             res.append(0)
