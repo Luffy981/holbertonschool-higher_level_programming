@@ -1,0 +1,36 @@
+====================
+| TEST SAY MY NAME |
+====================
+
+this test was made to check if the program print
+my name
+
+Names:
+======
+
+``3-say_my_name`` print my name
+
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("Jhon", "Smith")
+	My name is Jhon Smith
+
+	>>> say_my_name("Walter", "White")
+	My name is Walter White
+
+	>>> say_my_name("Bob")
+	My name is Bob 
+
+Errors:
+=======
+
+Raise errors when are necesary.
+
+::
+	>>> say_my_name("Luffy", 1)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+	>>> say_my_name(4.3, "Monkey")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
