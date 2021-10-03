@@ -1,0 +1,56 @@
+====================
+| TEST PRINT SQUARE |
+====================
+
+this test was made to check if the program print
+sqare correctly
+
+Print square:
+======
+
+``4-print_square`` print square
+
+::
+	>>> print_square = __import__('4-print_square').print_square
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+
+	>>> print_square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+	>>> print_square(0)
+	
+
+	>>> print_square(1)
+	#
+
+Errors:
+=======
+
+Raise errors when are necesary.
+
+::
+	>>> print_square(-10)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+	>>> print_square(-10.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+	>>> print_square("Luffy")
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
