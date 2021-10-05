@@ -24,7 +24,7 @@ class Rectangle:
         if type(new_width) is not int:
             raise TypeError("width must be an integer")
         if new_width < 0:
-            raise ValueError("width must be >=0")
+            raise ValueError("width must be >= 0")
         self.__width = new_width
 
     @property
@@ -36,7 +36,7 @@ class Rectangle:
         if type(new_height) is not int:
             raise TypeError("height must be an integer")
         if new_height < 0:
-            raise ValueError("height must be >=0")
+            raise ValueError("height must be >= 0")
         self.__height = new_height
 
     def area(self):
@@ -50,7 +50,7 @@ class Rectangle:
     def __str__(self):
         """Print square to stdout"""
         result = ""
-        if self.width == 0 and self.height == 0:
+        if self.width == 0 or self.height == 0:
             return result
         else:
             result += '\n'.join(str(self.print_symbol) * self.__width
