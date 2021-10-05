@@ -47,7 +47,7 @@ class Rectangle:
         """Print square to stdout"""
         result = ""
         if self.width == 0 and self.height == 0:
-            return result))
+            return result
         else:
             result += '\n'.join("#" * self.__width
                                 for j in range(self.__height))
