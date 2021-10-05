@@ -1,0 +1,80 @@
+===============================
+|  TEST MATRIX MULTIPLICATION  |
+===============================
+
+this test was made to check if the program multiply 
+2 matrix correctly
+
+multiply matrix:
+================
+
+``matrix_mul()`` returns a new matrix.
+
+::
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+	[[7, 10], [15, 22]]
+
+	>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+	[[13, 16]]
+
+The program raised errors when are necessary.
+
+::
+	>>> matrix_mul("Holberton", [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
+
+	>>> matrix_mul([[1, 2], [3, 4]], "School")
+	Traceback (most recent call last):
+	TypeError: m_b must be a list
+
+	>>> matrix_mul([[1, 2], "Luffy"], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list of lists
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], "monkey"])
+	Traceback (most recent call last):
+	TypeError: m_b must be a list of lists
+
+	>>> matrix_mul([], [[]])
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
+	>>> matrix_mul([[1, 3]], [])
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+
+	>>> matrix_mul([[1, 3]], [[]])
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+
+	>>> matrix_mul([[]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
+
+	>>> matrix_mul([[1, 2], ["Holberton", 4]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: m_a should contain only integers or floats
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, "School"]])
+	Traceback (most recent call last):
+	TypeError: m_b should contain only integers or floats
+
+	>>> matrix_mul([[1, 2], [3, 4, 1]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: each row of m_a must be of the same size
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2, 9], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: each row of m_b must be of the same size
+
+
+
+
+
+
+
+
