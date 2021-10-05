@@ -22,6 +22,8 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
     i = 0
+    if type(matrix) is not list:
+        raise TypeError(message)
     if not isinstance(matrix[0], list):
         for item in matrix:
             if type(item) not in [int, float]:
