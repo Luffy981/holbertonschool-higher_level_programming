@@ -42,12 +42,13 @@ def matrix_mul(m_a, m_b):
             for item2 in row2:
                 if type(item2) not in [int, float]:
                     raise TypeError(message2)
-    #for i in range(len(m_a)):
-    #   for j in range(len(m_b[0])):
-    #       for k in range(len(m_b)):
-    #           result[i][j] += m_a[i][k] * m_b[k][j]
-    #result = [[sum(a * b for a, b in zip(m_a_row, m_b_column)) for m_b_column in zip(*m_b)] for m_a_row in m_a]
+#   for i in range(len(m_a)):
+#   for j in range(len(m_b[0])):
+#       for k in range(len(m_b)):
+#           result[i][j] += m_a[i][k] * m_b[k][j]
+#   result = [[sum(a * b for a, b in zip(m_a_row, m_b_column))
+#   for m_b_column in zip(*m_b)] for m_a_row in m_a]
     for m_b_column in zip(*m_b):
         for m_a_row in m_a:
-                result = sum(a * b for a, b in zip(m_a_row, m_b_column))
+            result = sum(a * b for a, b in zip(m_a_row, m_b_column))
     return result
