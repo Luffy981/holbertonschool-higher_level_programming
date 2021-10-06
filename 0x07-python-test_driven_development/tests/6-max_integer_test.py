@@ -13,8 +13,8 @@ class TestMaxInteger(unittest.TestCase):
     """
     def test_max(self):
         """Max value into matrix with integer numbers"""
-        self.assertAlmostEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertAlmostEqual(max_integer([5, 10, 3, 89]), 89)
+        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
+        self.assertEqual(max_integer([5, 10, 3, 89]), 89)
 
     def test_types(self):
         """Make sure type errors are raised when necessary"""
