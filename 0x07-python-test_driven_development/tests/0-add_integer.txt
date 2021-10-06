@@ -1,42 +1,52 @@
-# doctest_add_integer.py
+=======================
+|  Test Add Integers  |
+=======================
 
-==================================
-File information 0-add_integer.py
-==================================
+this test was made to check if the program to add 
+2 integer numbers work correctly.
 
-Function that adds 2 integers, uses the "+" operator
-to return an addition
+Sum:
+====
 
-Test case:
-==========
+``0-add_integer()`` returns the sum of its arguments.
 
-- Checking normal use with two numbers:
-add_int = import("0-add_integer")
-    >>> add_int.add_integer(5, 4)
-    9
+::
+#	>>> from '0-add_integer' import add_integer
 
-- It also works with floating-point values:
-    >>> add_int.add_integer(2.0, 5)
-    7
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
+	>>> add_integer(2)
+	100
 
-Non-Numbers:
-============
-The function should throw an error when putting a
-character or a string inside the sum
+It also works with floating-point values.
 
-    >>> add_int.add_integer('a', 5)
-    Traceback (most recent call last):
-    TypeError: a must be an integer
+::
+	>>> add_integer(100.3, -2)
+	98
 
-    >>> add_int.add_integer(4, "shannel")
-    Traceback (most recent call last):
-    TypeError: b must be an integer
+The program raised errors when are necessary.
 
-Float overflow:
-==============
+::
+	>>> add_integer(4, "School")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
 
-    >>> add_int.add_integer(float("inf"))
-    89
+	>>> add_integer("Holberton", 100)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
 
-    >>> add_int.add_integer(float("NaN"), 0)
-    89
+	>>> add_integer("Holberton", "School")
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+	>>> add_integer(["Hola"], ["mundo"])
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+	>>> add_integer(float("inf"))
+	89
+
+	>>> add_integer(float("NaN"), 0)
+	89
+
