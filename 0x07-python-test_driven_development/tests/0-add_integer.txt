@@ -1,5 +1,3 @@
-# doctest_add_integer.py
-
 ==================================
 File information 0-add_integer.py
 ==================================
@@ -9,16 +7,20 @@ to return an addition
 
 Test case:
 ==========
-
+``0-add_integer()`` returns the sum of its arguments.
 - Checking normal use with two numbers:
-add_int = import("0-add_integer")
-    >>> add_int.add_integer(5, 4)
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(5, 4)
     9
 
 - It also works with floating-point values:
-    >>> add_int.add_integer(2.0, 5)
-    7
-	>>> add_int.add_integer(2)
+
+::
+  	>>> add_integer(2.0, 5)
+	7
+
+	>>> add_integer(2)
 	100
 
 Non-Numbers:
@@ -26,19 +28,21 @@ Non-Numbers:
 The function should throw an error when putting a
 character or a string inside the sum
 
-    >>> add_int.add_integer('a', 5)
+::
+    >>> add_integer('a', 5)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-    >>> add_int.add_integer(4, "shannel")
+    >>> add_integer(4, "shannel")
     Traceback (most recent call last):
     TypeError: b must be an integer
 
 Float overflow:
 ==============
 
-    >>> add_int.add_integer(float("inf"))
+::
+    >>> add_integer(float("inf"))
     89
 
-    >>> add_int.add_integer(float("NaN"), 0)
+    >>> add_integer(float("NaN"), 0)
     89
