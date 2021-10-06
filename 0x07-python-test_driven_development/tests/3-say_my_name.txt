@@ -64,6 +64,11 @@ Raise errors when are necesary.
 	Traceback (most recent call last):
 	TypeError: last_name must be a string
 
+	>>> say_my_name("Rayu", "")
+	My name is Rayu 
+
+	>>> say_my_name("", "")
+	My name is  
 
 
 
