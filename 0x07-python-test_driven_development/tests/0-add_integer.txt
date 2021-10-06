@@ -11,11 +11,12 @@ Sum:
 ``0-add_integer()`` returns the sum of its arguments.
 
 ::
-#	>>> from '0-add_integer' import add_integer
 
 	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> add_integer(1, 2)
 	3
+	>>> add_integer(100, -2)
+	98
 	>>> add_integer(2)
 	100
 
@@ -46,8 +47,3 @@ The program raised errors when are necessary.
 
 	>>> add_integer(float("inf"))
 	89
-
-	>>> add_integer(float("NaN"), 0)
-	89
-
-
