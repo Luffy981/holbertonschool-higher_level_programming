@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import doctest
 """
 function to add 2 numbers
 numers a, b
@@ -22,7 +21,3 @@ def add_integer(a, b=98):
     a = int(a)
     b = int(b)
     return a + b
-
-
-if __name__ == '__main__':
-    doctest.testfile('0-add_integer.txt')
