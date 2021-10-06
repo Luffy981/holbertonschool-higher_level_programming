@@ -29,11 +29,11 @@ Raise errors when are necesary.
 ::
 	>>> say_my_name("Luffy", 1)
 	Traceback (most recent call last):
-	TypeError: first_name must be a string
+	TypeError: last_name must be a string
 
 	>>> say_my_name(4.3, "Monkey")
 	Traceback (most recent call last):
-	TypeError: last_name must be a string
+	TypeError: first_name must be a string
 
 	>>> say_my_name(False, 1)
 	Traceback (most recent call last):
