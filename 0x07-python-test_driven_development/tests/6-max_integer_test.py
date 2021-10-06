@@ -1,9 +1,16 @@
 #!/usr/bin/python3
+"""
+Tests for check max integer
+into a matrix
+"""
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
+    """
+    Class TestMaxInteger
+    """
     def test_max(self):
         """Max value into matrix with integer numbers"""
         self.assertAlmostEqual(max_integer([1, 2, 3, 4]), 4)
