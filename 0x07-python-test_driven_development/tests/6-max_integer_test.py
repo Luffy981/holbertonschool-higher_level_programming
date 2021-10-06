@@ -135,7 +135,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, ["h", 1])
         self.assertRaises(TypeError, max_integer, [2, [2, 1]])
 
-        self.assertEqual(max_intger([]), None)
+        self.assertEqual(max_integer([]), None)
         self.assertEqual(max_integer([3]), 3)
         self.assertEqual(max_integer([-3]), -3)
         self.assertEqual(max_integer([-1, -2, -3]), -1)
@@ -164,6 +164,7 @@ class TestMaxInteger(unittest.TestCase):
         string = [1, 2, "Hello", 4, 5]
         with self.assertRaises(TypeError):
             max_integer(string)
+
 
 if __name__ == '__main__':
     unittest.main()
