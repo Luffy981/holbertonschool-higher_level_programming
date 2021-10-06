@@ -13,15 +13,11 @@ def add_integer(a, b=98):
     Return:
         the addition of a and b
     """
-    if type(a) is not int and type(a) is not float:
+    if a is None or (type(a) is not int and type(a) is not float):
         raise TypeError("a must be an integer")
     if type(b) is not int and type(b) is not float:
         raise TypeError("b must be an integer")
-    if type(a) is float:
-        a = int(a)
-    if type(b) is float:
-        b = int(b)
     result = a + b
     if result == float('inf') or result == -float('inf'):
-        return 98
-    return a + b
+        return 89
+    return int(a) + int(b)
