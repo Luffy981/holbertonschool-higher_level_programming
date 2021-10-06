@@ -16,7 +16,7 @@ Sum:
 	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> add_integer(1, 2)
 	3
-	>>> add_integer(100, -2)
+	>>> add_integer(_, -2)
 	98
 	>>> add_integer(2)
 	100
@@ -26,6 +26,11 @@ It also works with floating-point values.
 ::
 	>>> add_integer(100.3, -2)
 	98
+	>>> add_integer(float('inf'), 0)
+	89
+
+	>>> add_integer(float('Nan'), 0)
+	89
 
 The program raised errors when are necessary.
 
