@@ -1,25 +1,22 @@
 #!/usr/bin/python3
 """
-This is "0-add_integer" module
-this module contains add_integers function that adds two integers
+function return addition
+values: a, b
+Return: a + b
 """
 
 
 def add_integer(a, b=98):
-    """Return the addition of two numbers with spcific validation
-    Arguments:
-        a (int or float): first value to add
-        b (int or float): second value to add
-    Return:
-        the addition of a and b
+    """
+    function return addition
     """
     if a != a:
         a = 89
     if b != b:
         b = 89
-    if a is None or (type(a) is not int and type(a) is not float):
+    if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
-    if type(b) is not int and type(b) is not float:
+    if type(b) not in [int, float]:
         raise TypeError("b must be an integer")
     result = a + b
     if result == float('inf') or result == -float('inf'):
