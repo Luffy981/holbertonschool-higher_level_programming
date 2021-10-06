@@ -22,4 +22,3 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [1, False, True, 4])
         self.assertRaises(TypeError, max_integer, [1, 2, ["Ola k ace"], 4])
         self.assertRaises(TypeError, max_integer, "Monkey D. Luffy")
-
