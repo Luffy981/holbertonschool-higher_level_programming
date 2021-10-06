@@ -7,16 +7,14 @@ to return an addition
 
 Test case:
 ==========
-``0-add_integer()`` returns the sum of its arguments.
 - Checking normal use with two numbers:
-::
+
 	>>> add_integer = __import__('0-add_integer').add_integer
     >>> add_integer(5, 4)
     9
 
 - It also works with floating-point values:
 
-::
   	>>> add_integer(2.0, 5)
 	7
 
@@ -28,7 +26,6 @@ Non-Numbers:
 The function should throw an error when putting a
 character or a string inside the sum
 
-::
     >>> add_integer('a', 5)
     Traceback (most recent call last):
     TypeError: a must be an integer
@@ -40,7 +37,6 @@ character or a string inside the sum
 Float overflow:
 ==============
 
-::
     >>> add_integer(float("inf"))
     89
 
