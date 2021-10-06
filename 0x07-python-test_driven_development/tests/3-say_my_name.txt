@@ -52,11 +52,17 @@ Raise errors when are necesary.
 	Traceback (most recent call last):
 	TypeError: first_name must be a string
 
+	>>> say_my_name("Luffy", True)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
 
+	>>> say_my_name("Luffy", False)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
 
-
-
-
+	>>> say_my_name("Luffy", ["hola"])
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
 
 
 
