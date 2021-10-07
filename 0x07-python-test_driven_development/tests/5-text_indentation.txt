@@ -64,4 +64,19 @@ Raise errors when are necesary.
 	<BLANKLINE>
 	mundo
 
+	>>> text_indentation(True)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+	>>> text_indentation(False)
+	Traceback (most recent call last):
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+	>>> text_indentation(["ola k ace"])
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+
+
+
 
