@@ -57,8 +57,11 @@ Raise errors when are necesary.
 	TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 	>>> text_indentation("Hola mundo")
-	Traceback (most recent call last):
-	TypeError: text must be a string
+	Hola mundo
 
+	>>> text_indentation("hola. mundo")
+	hola.
+	<BLANKLINE>
+	mundo
 
 
