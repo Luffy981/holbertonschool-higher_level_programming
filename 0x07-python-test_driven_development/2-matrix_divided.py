@@ -23,7 +23,7 @@ def matrix_divided(matrix, div):
         for item in matrix:
             if type(item) not in [int, float]:
                 raise TypeError(message)
-        my_list = list(map(lambda item: round(item/div, 2), matrix))
+        re = list(map(lambda item: round(item/div, 2), matrix))
     else:
         for row in matrix:
             if i >= 1:
