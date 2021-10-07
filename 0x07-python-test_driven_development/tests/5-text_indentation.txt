@@ -76,6 +76,11 @@ Raise errors when are necesary.
 	Traceback (most recent call last):
 	TypeError: text must be a string
 
+	>>> text_indentation("hola. mundo:")
+	hola.
+	<BLANKLINE>
+	mundo:
+
 
 
 
