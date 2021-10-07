@@ -6,81 +6,83 @@
 ::
 
 Importing the function from the module:
+
 	>>> add_integer = __import__("0-add_integer").add_integer
 
-Checking for module docstring:
-	>>> m = __import__("0-add_integer").__doc__
-	>>> len(m) > 1
-	True
-
-Checking for function docstring:
-	>>> f = __import__("0-add_integer").add_integer.__doc__
-        >>> len(f) > 1
-        True
-
 Checking regular addition:
+
 	>>> add_integer(2, 3)
 	5
 
 Checking positive with negative:
+
 	>>> add_integer(2, -4)
 	-2
 
 Checking negative with positive:
-	 >>> add_integer(-6, 8)
-	 2
+
+	>>> add_integer(-6, 8)
+	2
 
 Checking float with int:
-	 >>> add_integer(2.1, 4)
-	 6
+
+	>>> add_integer(2.1, 4)
+	6
 
 Checking int with float:
-	 >>> add_integer(5, 7.8)
-	 12
+
+	>>> add_integer(5, 7.8)
+	12
 
 Checking both float:
-	 >>> add_integer(2.45, 3.1)
-	 5
+
+	>>> add_integer(2.45, 3.1)
+	5
 
 Checking for passed NaN:
-	 >>> add_integer(float('NaN'), 0)
-	 89
+
+	>>> add_integer(float('NaN'), 0)
+	89
 
 Check Exceptions for all cases
 ::
 
 Checking for passed inf:
-	 >>> add_integer(1, float('inf'))
-	 Traceback (most recent call last):
-	 ...
-	 OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(1, float('inf'))
+	89
 
 Checking non-number with number:
-	 >>> add_integer([1], 2)
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: a must be an integer
+
+	>>> add_integer([1], 2)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 Checking number with non-number:
-	 >>> add_integer(3, "2")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: b must be an integer
+
+	>>> add_integer(3, "2")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
 Checking non-number with non-number:
-	 >>> add_integer((2,), [1])
-         Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+
+	>>> add_integer((2,), [1])
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 Checking bool with number:
-	 >>> add_integer(True, 1)
-	 Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+
+	>>> add_integer(True, 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 Checking number with bool:
-	 >>> add_integer(0, False)
-         Traceback (most recent call last):
-         ...
-         TypeError: b must be an integer
+
+	>>> add_integer(0, False)
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
