@@ -22,12 +22,12 @@ def matrix_mul(m_a, m_b):
             raise TypeError("m_b must be a list of lists")
     if not m_a:
         raise ValueError("m_a can't be empty")
-    elif len(m_a) == 1:
+    else:
         if not m_a[0]:
             raise ValueError("m_a can't be empty")
     if not m_b:
         raise ValueError("m_b can't be empty")
-    elif len(m_b) == 1:
+    else:
         if not m_b[0]:
             raise ValueError("m_b can't be empty")
     message = "m_a should contain only integers or floats"
@@ -39,12 +39,12 @@ def matrix_mul(m_a, m_b):
     else:
         len_r = len(m_a[0])
         for row in m_a:
-            if len_r != len(row):
-                raise TypeError("each row of m_a must be of the same size")
-            len_r = len(row)
             for item in row:
                 if type(item) not in [int, float]:
                     raise TypeError(message)
+            if len_r != len(row):
+                raise TypeError("each row of m_a must be of the same size")
+            len_r = len(row)
 
     if type(m_b[0]) is not list:
         for j in m_a:
@@ -53,17 +53,22 @@ def matrix_mul(m_a, m_b):
     else:
         len_r = len(m_b[0])
         for row2 in m_b:
-            if len_r != len(row2):
-                raise TypeError("each row of m_b must be of the same size")
-            len_r = len(row2)
             for item2 in row2:
                 if type(item2) not in [int, float]:
                     raise TypeError(message2)
+            if len_r != len(row2):
+                raise TypeError("each row of m_b must be of the same size")
+            len_r = len(row2)
+
 #   for i in range(len(m_a)):
 #   for j in range(len(m_b[0])):
 #       for k in range(len(m_b)):
 #           result[i][j] += m_a[i][k] * m_b[k][j]
 #   result = [[sum(a * b for a, b in zip(m_a_row, m_b_column))
 #   for m_b_column in zip(*m_b)] for m_a_row in m_a]
-    res = [[sum(a * b for a, b in zip(r, c)) for c in zip(*m_b)] for r in m_a]
-    return res
+    try:
+        m = m_a
+        r = [[sum(a * b for a, b in zip(r, c)) for c in zip(*m_b)] for r in m]
+        return r
+    except:
+        raise ValueError("m_a and m_b can't be multiplied")
