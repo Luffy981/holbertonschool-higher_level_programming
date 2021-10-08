@@ -70,5 +70,4 @@ def matrix_mul(m_a, m_b):
         m = m_a
         r = [[sum(a * b for a, b in zip(r, c)) for c in zip(*m_b)] for r in m]
         return r
-    except:
-        raise ValueError("m_a and m_b can't be multiplied")
+    raise ValueError("m_a and m_b can't be multiplied")
