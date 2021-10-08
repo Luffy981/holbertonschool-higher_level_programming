@@ -34,6 +34,7 @@ def text_indentation(text):
     list_lines = []
     for char in ".:?":
         text = text.replace(char, char + "\n\n")
+#    list_lines = [lines.strip(' ') for lines in text.split('\n')]
     for lines in text.split('\n'):
         list_lines.append(lines.strip(" "))
     revised = "\n".join(list_lines)
