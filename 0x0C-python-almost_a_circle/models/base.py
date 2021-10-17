@@ -168,7 +168,7 @@ class Base:
             kael.goto(x, y)
             kael.pendown()
 
-        def create_rectangle(width, height, art):
+        def create_rectangle(width, height, kael):
             kael.begin_fill()
             for i in range(2):
                 kael.forward(width)
