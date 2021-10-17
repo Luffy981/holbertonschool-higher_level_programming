@@ -21,6 +21,24 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        """*args is the list of arguments - no-keyworded arguments
+        - **kwargs must be skipped if *args exists and is not empty
+        - Each key in this dictionary represents an attribute to the instance
+        """
+        args_list = ["id", "width", "x", "y"]
+        if args and args[0] is not None:
+            if len(args) > len(args_list):
+                max_len = len(args_list)
+            else:
+                max_len = len(args)
+            for i in range(max_len):
+                setattr(self, args_list[i], args[i])
+        elif kwargs is not None:
+            for key in kwargs:
+                if hasattr(self, key) is True:
+                    setattr(self, key, kwargs[key])
+
     def __str__(self):
         """The overloading __str__ method for square"""
         return ("[Square] {:d} {:d}/{:d} - {:d}"
