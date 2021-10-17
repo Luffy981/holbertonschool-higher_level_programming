@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -75,6 +76,53 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        result = []
+        with open(filename, encoding="utf-8") as file:
+            obj_list = cls.from_json_string(file.read())
+            for dictionary in obj_list:
+                result.append(cls.create(**dictionary))
+        return result
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Method to serializes and deserializes in CSV
+        -input: ['1', '10', '7', '2', '8']
+        -first: your need to create a dictionary of the instance
+        -{'width': '10', 'height': '7', 'id': '1', 'x': '2', 'y': '8'}
+        -second: you need to create an object from the dict
+        -Return: [140462163445632] [Square] (5) 0/0 - 5
+        """
+        list_rectangle = ["id", "with", "height", "x", "y"]
+        list_square = ["id", "size", "x", "y"]
+        filename = cls.__name__ + ".csv"
+        result = []
+
+        with open(filename, encoding="utf-8") as file:
+            obj_list = csv.reader(file)
+            # read obj_list < csv.reader object
+            if cls.__name__ == "Rectangle":
+                for list in obj_list:
+                    # create dictionary
+                    dict = {}
+                    for key, value in zip(list_rectangle, list):
+                        dict[key] = int(value)
+                    # create an object and append to a list
+                    result.append(cls.create(**dict))
+            if cls.__name__ == "Square":
+                for list in obj_list:
+                    # create dictionary
+                    dict = {}
+                    for key, value in zip(list_square, list):
+                        dict[key] = int(value)
+                    # create an object and append to a list
+                    result.append(cls.create(**dict))
+        return result
 
 
 
