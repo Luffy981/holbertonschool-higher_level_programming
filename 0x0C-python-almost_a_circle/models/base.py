@@ -4,6 +4,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -133,9 +134,8 @@ class Base:
         filename = cls.__name__ + ".csv"
         result = []
 
-        try:
-            with open(filename, encoding="utf-8") as file:
-                obj_list = csv.reader(file)
+        with open(filename, encoding="utf-8") as file:
+            obj_list = csv.reader(file)
             # read obj_list < csv.reader object
             if cls.__name__ == "Rectangle":
                 for list in obj_list:
@@ -153,9 +153,43 @@ class Base:
                         dict[key] = int(value)
                     # create an object and append to a list
                     result.append(cls.create(**dict))
-            return result
-        except:
-            return result
+        return result
 
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares"""
+        kael = turtle.Turtle()
+        kael.speed(3)
+        wn = turtle.Screen()
+        wn.bgcolor("#00897B")
 
+        def set_position(x, y):
+            kael.penup()
+            kael.goto(x, y)
+            kael.pendown()
 
+        def create_rectangle(width, height, art):
+            kael.begin_fill()
+            for i in range(2):
+                kael.forward(width)
+                kael.right(90)
+                kael.forward(height)
+                kael.right(90)
+            kael.end_fill()
+
+        for rectangle in list_rectangles:
+            kael.color("blue")
+            set_position(rectangle.x, rectangle.y)
+            create_rectangle(rectangle.width, rectangle.height, kael)
+            set_position(-1 * rectangle.x, -1 * rectangle.y)
+
+        for square in list_squares:
+            kael.color("red")
+            set_position(square.x, square.y)
+            create_rectangle(square.size, square.size, kael)
+            set_position(-1 * square.x, -1 * square.y)
+        kael.color("black")
+        set_position(300, -200)
+        kael.write("Luffy", font=("Garamond", 32, "normal"))
+
+        turtle.done()
