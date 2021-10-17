@@ -85,9 +85,22 @@ class Rectangle(Base):
         return ("[rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
                 .format(self.id, self.x, self.y, self.width, self.height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ public method def update that assigns an
-        argument to each attribute"""
+        argument to each attribute
+        -**kwargs must be skipped if *args exists and is not empty
+        -Each key in this dictionary represents an attribute to the instance
+        """
         args_list = ["id", "width", "height", "x", "y"]
-        for i in range(len(args)):
-            setattr(self, args_list[i], args[i])
+        if args and args[0] is not None:
+            if len(args) > len(args_list):
+                max_len = len(args_list)
+            else:
+                max_len = len(args)
+            for i in range(max_len):
+                setattr(self, args_list[i], args[i])
+        elif kwargs is not None:
+            for key in kwargs:
+                if hasattr(self, key) is True:
+                    setattr(self, key, kwargs[key])
+
