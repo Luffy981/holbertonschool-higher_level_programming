@@ -91,7 +91,37 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
-        Method to serializes and deserializes in CSV
+        Method to serialize in csv
+        input: object (you can have the information with dict)
+        result: [[4, 5, 0, 0], [5, 7, 9, 1]]
+        """
+        list_rectangle = ["id", "width", "height", "x", "y"]
+        list_square = ["id", "size", "x", "y"]
+        filename = cls.__name__ + ".csv"
+        result = []
+
+        if list_objs:
+            for objs in list_objs:
+                # First recollect the info of the object with a dict
+                dictionary = objs.to_dictionary()
+                middle_result = []
+                # second obtein the values in a ordered class list
+                if cls.__name__ == "Rectangle":
+                    for item in list_rectangle:
+                        middle_result.append(dictionary[item])
+                if cls.__name__ == "Square":
+                    for item in list_square:
+                        middle_result.append(dictionary[item])
+                # append the list to result list
+                result.append(middle_result)
+        with open(filename, "w", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerows(result)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Method to  deserialize in CSV
         -input: ['1', '10', '7', '2', '8']
         -first: your need to create a dictionary of the instance
         -{'width': '10', 'height': '7', 'id': '1', 'x': '2', 'y': '8'}
@@ -103,8 +133,9 @@ class Base:
         filename = cls.__name__ + ".csv"
         result = []
 
-        with open(filename, encoding="utf-8") as file:
-            obj_list = csv.reader(file)
+        try:
+            with open(filename, encoding="utf-8") as file:
+                obj_list = csv.reader(file)
             # read obj_list < csv.reader object
             if cls.__name__ == "Rectangle":
                 for list in obj_list:
@@ -122,7 +153,9 @@ class Base:
                         dict[key] = int(value)
                     # create an object and append to a list
                     result.append(cls.create(**dict))
-        return result
+            return result
+        except:
+            return result
 
 
 
