@@ -71,11 +71,23 @@ class Rectangle(Base):
 
     def display(self):
         """that prints in stdout the Rectangle"""
-        for i in range(0, self.__height):
-            print("#" * self.__width)
+        for y in range(0, self.y):
+            print()
+        for j in range(0, self.height):
+            for x in range(0, self.x):
+                print(" ", end="")
+            for i in range(0, self.width):
+                print("#", end="")
+            print()
 
     def __str__(self):
         """overriding the __str__ method"""
         return ("[rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
-                .format(self.id, self.__x, self.__y,
-                        self.__width, self.__height))
+                .format(self.id, self.x, self.y, self.width, self.height))
+
+    def update(self, *args):
+        """ public method def update that assigns an
+        argument to each attribute"""
+        args_list = ["id", "width", "height", "x", "y"]
+        for i in range(len(args)):
+            setattr(self, args_list[i], args[i])
