@@ -21,7 +21,7 @@ class Rectangle(Base):
     @property
     def width(self):
         """
-        property width
+        property width return
         """
         return self.__width
 
@@ -39,7 +39,7 @@ class Rectangle(Base):
     @property
     def height(self):
         """
-        property height
+        property height return
         """
         return self.__height
 
@@ -67,7 +67,7 @@ class Rectangle(Base):
         property setter x
         """
         if type(new_x) is not int:
-            raise TypeError("x must be and integer")
+            raise TypeError("x must be an integer")
         if new_x < 0:
             raise ValueError("x must be >= 0")
         self.__x = new_x
