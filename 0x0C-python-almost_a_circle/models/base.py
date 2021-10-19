@@ -68,7 +68,7 @@ class Base:
     def create(cls, **dictionary):
         """
         Returns an instance with all attributes already set
-        -Create a Rectangle or Square instance with “dummy” 
+        -Create a Rectangle or Square instance with “dummy”
         -Call update instance method to this “dummy”
         """
         if cls.__name__ == "Rectangle":
