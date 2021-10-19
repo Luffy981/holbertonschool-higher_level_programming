@@ -137,26 +137,29 @@ class Base:
         filename = cls.__name__ + ".csv"
         result = []
 
-        with open(filename, encoding="utf-8") as file:
-            obj_list = csv.reader(file)
-            # read obj_list < csv.reader object
-            if cls.__name__ == "Rectangle":
-                for list in obj_list:
-                    # create dictionary
-                    dict = {}
-                    for key, value in zip(list_rectangle, list):
-                        dict[key] = int(value)
-                    # create an object and append to a list
-                    result.append(cls.create(**dict))
-            if cls.__name__ == "Square":
-                for list in obj_list:
-                    # create dictionary
-                    dict = {}
-                    for key, value in zip(list_square, list):
-                        dict[key] = int(value)
-                    # create an object and append to a list
-                    result.append(cls.create(**dict))
-        return result
+        try:
+            with open(filename, encoding="utf-8") as file:
+                obj_list = csv.reader(file)
+                # read obj_list < csv.reader object
+                if cls.__name__ == "Rectangle":
+                    for list in obj_list:
+                        # create dictionary
+                        dict = {}
+                        for key, value in zip(list_rectangle, list):
+                            dict[key] = int(value)
+                        # create an object and append to a list
+                        result.append(cls.create(**dict))
+                if cls.__name__ == "Square":
+                    for list in obj_list:
+                        # create dictionary
+                        dict = {}
+                        for key, value in zip(list_square, list):
+                            dict[key] = int(value)
+                        # create an object and append to a list
+                        result.append(cls.create(**dict))
+                return result
+        except:
+            return result
 
     @staticmethod
     def draw(list_rectangles, list_squares):
