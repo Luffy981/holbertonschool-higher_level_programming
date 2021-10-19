@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+test differents behaviors of the Rectangle class
+"""
 import unittest
 import pycodestyle
 from models.base import Base
@@ -29,8 +32,6 @@ class TestCodeFormat(unittest.TestCase):
         r2 = Rectangle(2, 10)
         r2.id = 2
         self.assertEqual(r2.id, 2)
-        r3 = Rectangle(5, 6)
-        self.assertFalse(r3.id, 4)
 
     def test_rectangle_instance(self):
         """Test if Rectangle is instance of Base"""
@@ -38,8 +39,6 @@ class TestCodeFormat(unittest.TestCase):
         self.assertEqual(type(r), Rectangle)
         self.assertTrue(type(r) == Rectangle)
         self.assertFalse(type(r) == Base)
-        self.assertTrue(isinstance(r, Base))
-        self.assertFalse(isinstance(r, Rectangle))
 
     def test_given_id(self):
         """Test given id"""
@@ -121,7 +120,7 @@ class Test_Rectangle_Area(unittest.TestCase):
 class Test_Display(unittest.TestCase):
     """Test Display of Rectangle"""
 
-     def set_up(self):
+    def set_up(self):
         """set to 0 the number of objects"""
         Base._Base__nb_objects = 0
 
@@ -358,10 +357,6 @@ class Test_Update(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'height must be an integer'):
             r1.update(28, 3, 23.43, 342)
 
-        # pass bool to update x
-        with self.assertRaisesRegex(TypeError, 'x must be an integer'):
-            r1.update(28, 3, 23, True)
-
     def test_args_as_iterable_obj(self):
         """pass iterable args to update function"""
         self.set_nb_to_zero()
@@ -455,14 +450,6 @@ class TestRectangle(unittest.TestCase):
         cls.r2 = Rectangle(2, 3, 4)
         cls.r3 = Rectangle(5, 6, 7, 8, 9)
         cls.r4 = Rectangle(11, 12, 13, 14)
-
-    def test_y_typeerror(self):
-        """Test non ints for y"""
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(1, 1, 1, "hello")
-
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(1, 1, 1, "True")
 
     def test_width_valueerror(self):
         """Test ints <= 0 for width"""
