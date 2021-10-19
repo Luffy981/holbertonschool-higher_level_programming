@@ -9,6 +9,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """Class Rectangle inherits from Base"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialize method"""
         self.width = width
@@ -27,7 +28,8 @@ class Rectangle(Base):
     @width.setter
     def width(self, new_width):
         """
-        property setter width"""
+        property setter width
+        """
         if type(new_width) is not int:
             raise TypeError("width must be an integer")
         if new_width <= 0:
@@ -93,7 +95,7 @@ class Rectangle(Base):
     def area(self):
         """area value of the
         Rectangle instance"""
-        return self.__width * self.__height
+        return (self.width * self.height)
 
     def display(self):
         """that prints in
@@ -136,5 +138,5 @@ class Rectangle(Base):
         """
         to dictionary
         """
-        return ({'x': self.x, 'y': self.y, 'id': self.id,
-                'height': self.height, 'width': self.width})
+        return ({'id': self.id, 'width': self.width, 'height': self.height,
+                'x': self.x, 'y': self.y})
