@@ -85,7 +85,7 @@ class Rectangle(Base):
         property setter y
         """
         if type(new_y) is not int:
-            raise TypeError("y must be and integer")
+            raise TypeError("y must be an integer")
         if new_y < 0:
             raise ValueError("y must be >= 0")
         self.__y = new_y
