@@ -135,7 +135,6 @@ class Base:
         list_rectangle = ["id", "with", "height", "x", "y"]
         list_square = ["id", "size", "x", "y"]
         filename = cls.__name__ + ".csv"
-        dictionary = []
         result = []
 
         try:
