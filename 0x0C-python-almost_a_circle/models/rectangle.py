@@ -136,5 +136,6 @@ class Rectangle(Base):
         """
         to dictionary
         """
-        return ({'id': self.id, 'width': self.width, 'height': self.height,
-                'x': self.x, 'y': self.y})
+        key_list = ["id", "width", "height", "x", "y"]
+        value_list = [self.id, self.width, self.height, self.x, self.y]
+        return dict(zip(key_list, value_list))
