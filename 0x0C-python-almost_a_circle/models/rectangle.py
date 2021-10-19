@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""class rectangle"""
+"""class
+rectangle
+"""
 
 
 from models.base import Base
@@ -17,10 +19,15 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """
+        property width
+        """
         return self.__width
 
     @width.setter
     def width(self, new_width):
+        """
+        property setter width"""
         if type(new_width) is not int:
             raise TypeError("width must be an integer")
         if new_width <= 0:
@@ -29,10 +36,16 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """
+        property height
+        """
         return self.__height
 
     @height.setter
     def height(self, new_height):
+        """
+        property setter height
+        """
         if type(new_height) is not int:
             raise TypeError("height must be an integer")
         if new_height <= 0:
@@ -42,10 +55,16 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """
+        property x
+        """
         return self.__x
 
     @x.setter
     def x(self, new_x):
+        """
+        property setter x
+        """
         if type(new_x) is not int:
             raise TypeError("x must be and integer")
         if new_x < 0:
@@ -54,10 +73,16 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """
+        property y
+        """
         return self.__y
 
     @y.setter
     def y(self, new_y):
+        """
+        property setter y
+        """
         if type(new_y) is not int:
             raise TypeError("y must be and integer")
         if new_y < 0:
@@ -66,11 +91,13 @@ class Rectangle(Base):
         self.__y = new_y
 
     def area(self):
-        """area value of the Rectangle instance"""
+        """area value of the
+        Rectangle instance"""
         return self.__width * self.__height
 
     def display(self):
-        """that prints in stdout the Rectangle"""
+        """that prints in
+        stdout the Rectangle"""
         for y in range(0, self.y):
             print()
         for j in range(0, self.height):
@@ -81,7 +108,8 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """overriding the __str__ method"""
+        """overriding 
+        the __str__ method"""
         return ("[rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
                 .format(self.id, self.x, self.y, self.width, self.height))
 
@@ -105,6 +133,9 @@ class Rectangle(Base):
                     setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
+        """
+        to dictionary
+        """
         return ({'x': self.x, 'y': self.y, 'id': self.id,
                 'height': self.height, 'width': self.width})
 
