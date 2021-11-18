@@ -4,9 +4,9 @@ LEFT JOIN
 (
 	SELECT tg.id FROM tv_genres AS tg
 	JOIN tv_show_genres AS tsg
-   		ON tg.id=tsg.genre_id
+		ON tg.id=tsg.genre_id
 	JOIN tv_shows AS ts 
-		ON tg.show_id=ts.id
+		ON tsg.show_id=ts.id
 	WHERE ts.title="Dexter"
 	ORDER BY tg.name ASC
 ) AS subselect
