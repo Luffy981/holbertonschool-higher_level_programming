@@ -9,4 +9,4 @@ LEFT JOIN
 	ON tsg.genre_id=tg.id
 	WHERE tg.name="Comedy"
 ) AS subselect
-ON subselect.id=ts.id WHERE subselect IS NULL ORDER BY ts.title ASC;
+ON subselect.id=ts.id WHERE subselect.id IS NULL ORDER BY ts.title ASC;
