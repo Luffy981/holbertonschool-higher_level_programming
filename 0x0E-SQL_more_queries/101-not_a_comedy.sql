@@ -7,6 +7,6 @@ LEFT JOIN
 	ON ts.id=tsg.show_id
 	JOIN tv_genres AS tg
 	ON tsg.genre_id=tg.id
-	WHERE tg.name="Comedy"
+	WHERE tg.name = "Comedy"
 ) AS subselect
-ON subselect.id=ts.id WHERE subselect.id IS NULL ORDER BY ts.title ASC;
+ON subselect.id = ts.id WHERE subselect.id IS NULL ORDER BY ts.title ASC;
