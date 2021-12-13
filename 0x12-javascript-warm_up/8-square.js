@@ -4,7 +4,7 @@ const number = parseInt(argv[2]);
 for (let i = 0; i < number; i++) {
   let concat = '';
   for (let j = 0; j < number; j++) {
-    concat += 'x';
+    concat += 'X';
   }
   console.log(concat);
 }
