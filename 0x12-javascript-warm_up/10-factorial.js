@@ -1,8 +1,13 @@
 #!/usr/bin/node
 const { argv } = require('process');
-const number = parseInt(argv[2]);
-let factorial = 1;
-for (let i = 1; i < number + 1; i++) {
-  factorial = factorial * i;
+let number = parseInt(argv[2]);
+function Factorial(number) {
+  if (!number)
+    console.log(1);
+    return;
+  if (number !== 0) {
+    return(number * Factorial(number - 1));
+  }
+  return;
 }
-console.log(factorial);
+Factorial(number);
