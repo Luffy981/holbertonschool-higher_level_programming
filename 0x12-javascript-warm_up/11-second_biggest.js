@@ -5,5 +5,5 @@ if (!argv[3]) {
 } else if (argv[2] && argv[3]) {
   argv.sort();
   const number = argv.length;
-  console.log(argv[number - 2]);
+  console.log(parseInt(argv[number - 2]));
 }
