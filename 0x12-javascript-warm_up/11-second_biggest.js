@@ -3,7 +3,8 @@ const { argv } = require('process');
 if (!argv[3]) {
   console.log(0);
 } else if (argv[2] && argv[3]) {
-  argv.sort();
-  const number = argv.length;
-  console.log(parseInt(argv[number - 2]));
+  const unique = [...new Set(argv)];
+  unique.sort();
+  const number = unique.length;
+  console.log(parseInt(unique[number - 2]));
 }
