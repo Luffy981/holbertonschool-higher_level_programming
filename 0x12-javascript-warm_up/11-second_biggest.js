@@ -7,4 +7,3 @@ if (!argv[3]) {
   const number = argv.length;
   console.log(argv[number - 2]);
 }
-
