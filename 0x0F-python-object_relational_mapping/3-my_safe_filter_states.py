@@ -13,7 +13,7 @@ def sqlConection():
         return 0
     print("Connected...")
     cur = db_connection.cursor()
-    sql = "SELECT * FROM states WHERE name = %s ORDER BY id ASC;"
+    sql = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC;"
     data = (argv[4],)
     cur.execute(sql, data)
     query_rows = cur.fetchall()
