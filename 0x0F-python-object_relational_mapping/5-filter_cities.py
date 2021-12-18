@@ -12,10 +12,9 @@ def sqlConection():
         print("Can't connect to database")
         return 0
     cur = db_connection.cursor()
-    string = "SELECT c.name FROM cities AS c JOIN states AS s ON "
-    sql = "c.state_id=s.id WHERE s.name = '{name}' ORDER BY c.state_id ASC"
-    sql = sql + string
-    cur.execute(sql.format(name=argv[4]))
+    string = "SELECT c.name FROM cities AS c JOIN states AS s ON \
+            c.state_id=s.id WHERE s.name = '{name}' ORDER BY c.state_id ASC"
+    cur.execute(string.format(name=argv[4]))
     query_rows = cur.fetchall()
     for row in query_rows:
         if row != query_rows[-1]:
