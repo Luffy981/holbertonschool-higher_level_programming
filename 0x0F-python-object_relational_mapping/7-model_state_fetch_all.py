@@ -12,4 +12,4 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
     for id, name in session.query(State.id, State.name):
-        print(id, name)
+        print("{}: {}".format(id, name))
