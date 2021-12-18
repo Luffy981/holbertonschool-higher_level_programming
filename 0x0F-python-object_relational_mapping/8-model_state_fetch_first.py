@@ -21,9 +21,8 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
     try:
-        for id, name in session.query(State.id, State.name).order_by(State.id):
-            print("{}: {}".format(id, name))
-            break
+        states = session.query(State.id, State.name).first()
+        print("{}: {}".format(states.id, states.name))
     except Exception:
         print("Nothing")
     session.close()
