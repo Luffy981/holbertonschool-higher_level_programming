@@ -19,7 +19,8 @@ def SQLconnect():
                 .format(name=argv[4]))
     query_rows = cur.fetchall()
     for row in query_rows:
-        print(row)
+        if row[1] == argv[4]:
+            print(row)
     cur.close()
     db_connection.close()
 
