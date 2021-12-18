@@ -22,12 +22,18 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
     save = ""
-    for s, c in session.query(State, City).\
+    # for s, c in session.query(State, City).\
+    #      order_by(State.id, City.id).\
+    #       filter(City.state_id == State.id).all():
+    #   if s.name != save:
+    #       print("{}: {}".format(s.id, s.name))
+    #   print("    {}: {}".format(c.id, c.name))
+    #   save = s.name
+    for s, c in session.query(State, City).join(City).\
             order_by(State.id, City.id).\
             filter(City.state_id == State.id).all():
         if s.name != save:
             print("{}: {}".format(s.id, s.name))
-            save = s.name
-        print(" {}: {}".format(c.id, c.name))
+        print("    {}: {}".format(c.id, c.name))
         save = s.name
     session.close()
