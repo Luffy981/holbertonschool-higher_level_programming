@@ -13,6 +13,6 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    for id, name in session.query(State.id, State.name):
+    for id, name in session.query(State.id, State.name).order_by(State.id):
         print("{}: {}".format(id, name))
     session.close()
