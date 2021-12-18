@@ -28,6 +28,6 @@ if __name__ == "__main__":
         if s.name != save:
             print("{}: {}".format(s.id, s.name))
             save = s.name
-        print("    {}: {}".format(c.id, c.name))
+        print(" {}: {}".format(c.id, c.name))
         save = s.name
     session.close()
