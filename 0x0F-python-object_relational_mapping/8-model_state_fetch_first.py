@@ -2,6 +2,7 @@
 """
 Start database
 """
+
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -19,12 +20,10 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    flag = 0
     try:
-        for id, name in session.query(State.id, State.name):
-            if flag == 0:
-                print("{}: {}".format(id, name))
-            flag = 1
+        for id, name in session.query(State.id, State.name).order_by(State.id):
+            print("{}: {}".format(id, name))
+            break
     except Exception:
         print("Nothing")
     session.close()
