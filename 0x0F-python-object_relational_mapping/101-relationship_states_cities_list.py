@@ -21,19 +21,10 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    save = ""
-    # for s, c in session.query(State, City).\
-    #      order_by(State.id, City.id).\
-    #       filter(City.state_id == State.id).all():
-    #   if s.name != save:
-    #       print("{}: {}".format(s.id, s.name))
-    #   print("    {}: {}".format(c.id, c.name))
-    #   save = s.name
-    for s, c in session.query(State, City).join(City).\
-            order_by(State.id, City.id).\
-            filter(City.state_id == State.id).all():
-        if s.name != save:
-            print("{}: {}".format(s.id, s.name))
-        print("    {}: {}".format(c.id, c.name))
-        save = s.name
+    list = session.query(State, City).join(City).order_by(State.id, City.id).\
+        filter(City.state_id == State.id).all()
+    for a, b in list:
+        print("{}: {}".format(a.id, a.name))
+        for j in a.cities:
+            print("    {}: {}".format(j.id, j.name))
     session.close()
