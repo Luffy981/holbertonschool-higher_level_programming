@@ -19,7 +19,7 @@ def connectDB():
     cur.execute(sql)
     query_rows = cur.fetchall()
     for row in query_rows:
-        if 'N' in row[1]:
+        if 'N' == row[1][0]:
             print(row)
     cur.close()
     db_connection.close()
