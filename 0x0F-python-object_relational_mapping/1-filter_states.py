@@ -18,12 +18,9 @@ def connectDB():
     sql = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
     cur.execute(sql)
     query_rows = cur.fetchall()
-    try:
-        for row in query_rows:
+    for row in query_rows:
+        if 'N' in row:
             print(row)
-    except Exception:
-        db_connection.close()
-        return 0
     cur.close()
     db_connection.close()
 
