@@ -17,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    for id, name in session.query(State.id, State.name):
-        session.delete(name)
+    x = session.query(State).get(2)
+    x.name = "New Mexico"
     session.commit()
     session.close()
