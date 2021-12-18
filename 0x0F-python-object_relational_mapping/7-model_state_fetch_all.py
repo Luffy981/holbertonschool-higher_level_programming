@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Start database
+"""
+
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -7,7 +11,7 @@ from sys import argv
 
 if __name__ == "__main__":
     """
-    Conect database and quering
+    Conect and quering database
     """
     sql = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql.format(argv[1],
