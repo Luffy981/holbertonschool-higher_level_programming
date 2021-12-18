@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Initialize database"""
 from model_city import City
 from model_state import Base, State
 from sqlalchemy import (create_engine)
@@ -7,6 +8,9 @@ from sys import argv
 
 
 if __name__ == "__main__":
+    """
+    Conecting to database and quering
+    """
     sql = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql.format(argv[1],
                                       argv[2], argv[3]), pool_pre_ping=True)
