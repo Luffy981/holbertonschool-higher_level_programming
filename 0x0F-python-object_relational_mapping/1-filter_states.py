@@ -15,11 +15,11 @@ def connectDB():
         print("Can't connect to database")
         return 0
     cur = db_connection.cursor()
-    sql = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
+    sql = "SELECT id, name FROM states ORDER BY id ASC;"
     cur.execute(sql)
     query_rows = cur.fetchall()
     for row in query_rows:
-        if 'N' in row:
+        if 'N' in row[1]:
             print(row)
     cur.close()
     db_connection.close()
