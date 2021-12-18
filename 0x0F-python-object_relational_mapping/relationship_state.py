@@ -4,10 +4,9 @@
 Models State inherits from base
 """
 
-from relationship_city import City
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String 
+from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
