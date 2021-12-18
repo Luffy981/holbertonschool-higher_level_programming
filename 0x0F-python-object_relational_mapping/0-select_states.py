@@ -12,6 +12,7 @@ def mysqlconnnect():
                                         user=argv[1], passwd=argv[2],
                                         db=argv[3], charset="utf8")
     except:
+        print("can't connect to database")
         return 0
     cur = db_connection.cursor()
     cur.execute("SELECT * FROM states ORDER BY id ASC")
