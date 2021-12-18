@@ -8,12 +8,14 @@ def sqlConection():
         db_connection = MySQLdb.connect(host="localhost", port=3306,
                                         user=argv[1], password=argv[2],
                                         db=argv[3], charset="utf8")
-    except:
+    except Exception:
         print("Can't connect to database")
         return 0
-    print("Connected...")
     cur = db_connection.cursor()
-    cur.execute("SELECT c.name FROM cities AS c JOIN states AS s ON c.state_id=s.id WHERE s.name = '{name}' ORDER BY c.state_id ASC".format(name=argv[4]))
+    string = "SELECT c.name FROM cities AS c JOIN states AS s ON "
+    sql = "c.state_id=s.id WHERE s.name = '{name}' ORDER BY c.state_id ASC"
+    sql = sql + string
+    cur.execute(sql.format(name=argv[4]))
     query_rows = cur.fetchall()
     for row in query_rows:
         if row != query_rows[-1]:
