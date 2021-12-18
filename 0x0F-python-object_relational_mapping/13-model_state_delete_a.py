@@ -20,5 +20,5 @@ if __name__ == "__main__":
     for obj in session.query(State):
         if 'a' in obj.name:
             session.delete(obj)
-            session.commit()
+    session.commit()
     session.close()
