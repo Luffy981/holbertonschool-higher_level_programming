@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Initialize database"""
 from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -6,6 +7,9 @@ from sys import argv
 
 
 if __name__ == "__main__":
+    """
+    Conecting database and quering
+    """
     sql = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
     engine = create_engine(sql.format(argv[1],
                                       argv[2], argv[3]), pool_pre_ping=True)
@@ -13,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    x = session.query(State).get(2)
-    x.name = "New Mexico"
+    for id, name in session.query(State.id, State.name):
+        session.delete(name)
     session.commit()
     session.close()
