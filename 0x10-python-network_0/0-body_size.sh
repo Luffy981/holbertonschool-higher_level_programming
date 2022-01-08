@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # cURL body size
 URL_IP="$1"
-curl "$URL_IP" -w '%{size_request}' -so /dev/null
-echo
+curl -sI "$URL_IP" | grep -i Content-Length | awk 'print $2'
