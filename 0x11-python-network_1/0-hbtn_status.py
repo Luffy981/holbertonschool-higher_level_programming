@@ -9,8 +9,9 @@ actions = [
         ("utf8 content", lambda html: html.decode()),
 ]
 
-with urlopen('https://intranet.hbtn.io/status') as response:
-    html = response.read()
-    print("Body response:")
-    for header, fun in actions:
-        print("\t- {}: {}".format(header, fun(html)))
+if __name__ == "__main__":
+    with urlopen('https://intranet.hbtn.io/status') as response:
+        html = response.read()
+        print("Body response:")
+        for header, fun in actions:
+            print("\t- {}: {}".format(header, fun(html)))
