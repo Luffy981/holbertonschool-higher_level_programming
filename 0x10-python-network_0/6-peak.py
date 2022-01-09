@@ -1,55 +1,47 @@
 #!/usr/bin/python3
-# Python program for implementation of Quicksort Sort
+# Python program for implementation of heap Sort
 
-# This function takes last element as pivot, places
-# the pivot element at its correct position in sorted
-# array, and places all smaller (smaller than pivot)
-# to left of pivot and all greater elements to right
-# of pivot
+# To heapify subtree rooted at index i.
+# n is size of heap
+def heapify(arr, n, i):
+    largest = i  # Initialize largest as root
+    la = 2 * i + 1     # left = 2*i + 1
+    r = 2 * i + 2     # right = 2*i + 2
 
-def partition(arr, low, high):
-    i = (low-1)         # index of smaller element
-    pivot = arr[high]     # pivot
+    # See if left child of root exists and is
+    # greater than root
+    if la < n and arr[i] < arr[la]:
+        largest = la
 
-    for j in range(low, high):
+    # See if right child of root exists and is
+    # greater than root
+    if r < n and arr[largest] < arr[r]:
+        largest = r
 
-        # If current element is smaller than or
-        # equal to pivot
-        if arr[j] <= pivot:
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
 
-            # increment index of smaller element
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
+        # Heapify the root.
+        heapify(arr, n, largest)
 
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
-
-# The main function that implements QuickSort
-# arr[] --> Array to be sorted,
-# low  --> Starting index,
-# high  --> Ending index
-
-# Function to do Quick sort
-
-
-def quickSort(arr, low, high):
-    if len(arr) == 1:
-        return arr
-    if low < high:
-
-        # pi is partitioning index, arr[p] is now
-        # at right place
-        pi = partition(arr, low, high)
-
-        # Separately sort elements before
-        # partition and after partition
-        quickSort(arr, low, pi-1)
-        quickSort(arr, pi+1, high)
+# The main function to sort an array of given size
 
 
 def find_peak(list_of_integers):
+    arr = list_of_integers
+    n = len(arr)
+
+    # Build a maxheap.
+    # Since last parent will be at ((n//2)-1) we can start at that location.
     try:
-        quickSort(list_of_integers, 0, len(list_of_integers) - 1)
-        return(list_of_integers[-1])
+        for i in range(n // 2 - 1, -1, -1):
+            heapify(arr, n, i)
+
+    # One by one extract elements
+        for i in range(n-1, 0, -1):
+            arr[i], arr[0] = arr[0], arr[i]   # swap
+            heapify(arr, i, 0)
+        return(arr[-1])
     except Exception:
         return None
