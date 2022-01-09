@@ -3,14 +3,15 @@
 
 from urllib.request import urlopen
 
-actions = [
-        ("type", lambda html: type(html)),
-        ("content", lambda html: html),
-        ("utf8 content", lambda html: html.decode()),
-]
+if __name__ == "__main__":
+    actions = [
+            ("type", lambda html: type(html)),
+            ("content", lambda html: html),
+            ("utf8 content", lambda html: html.decode()),
+    ]
 
-with urlopen('https://intranet.hbtn.io/status') as response:
-    html = response.read()
-    print("Body response:")
-    for header, fun in actions:
-        print("\t- {}: {}".format(header, fun(html)))
+    with urlopen('https://intranet.hbtn.io/status') as response:
+        html = response.read()
+        print("Body response:")
+        for header, fun in actions:
+            print("\t- {}: {}".format(header, fun(html)))
