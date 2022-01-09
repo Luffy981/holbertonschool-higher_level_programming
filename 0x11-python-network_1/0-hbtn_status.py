@@ -12,4 +12,5 @@ actions = [
 with urlopen('https://intranet.hbtn.io/status') as response:
     html = response.read()
     print("Body response:")
-    [print("\t- {}: {}".format(header, fun(html))) for header, fun in actions]
+    for header, fun in actions:
+        print("\t- {}: {}".format(header, fun(html)))
