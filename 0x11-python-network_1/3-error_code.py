@@ -4,7 +4,8 @@ import urllib.reqest
 import urllib.parse
 from sys import argv
 
-if __name__ == "__main__":
+
+if "__name__" == "__main__":
     try:
         with urllib.request.urlopen(argv[1]) as response:
             s = response.read()
