@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # Python script that fetches https://intranet.hbtn.io/status
-import urllib.request
+from urllib.request import urlopen
 
 actions = [
         ("type", lambda html: type(html)),
@@ -8,7 +8,7 @@ actions = [
         ("utf8 content", lambda html: html.decode()),
         ]
 
-with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+with urlopen('https://intranet.hbtn.io/status') as response:
     html = response.read()
     print("Body response:")
     for header, fun in actions:
