@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-# sends a request to the URL and displays the value of the X-Request-Id
+"""
+Write a Python script that takes in a URL, sends a request to the URL
+and displays the value of the X-Request-Id variable
+found in the header of the response.
+"""
 
-from urllib.request import urlopen
+import urllib.request
 from sys import argv
 
 
 if __name__ == "__main__":
-    with urlopen(argv[1]) as response:
-        headers_like_dict = dict(response.getheaders())
-        print(headers_like_dict.get('x-Request-Id'))
+    req = urllib.request.Request(argv[1])
+    with urllib.request.urlopen(req) as response:
+        print(response.headers.get('x-Request-Id'))
