@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Python script that takes in a URL, sends a request to the URL"""
-import urllib.reqest
+import urllib.request
 import urllib.parse
 from sys import argv
 
