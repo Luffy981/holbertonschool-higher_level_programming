@@ -7,7 +7,8 @@ actions = [
         ("type", lambda html: type(html)),
         ("content", lambda html: html),
     ]
-response = requests.get("https://intranet.hbtn.io/status")
-print("Body response:")
-for header, fun in actions:
-    print("\t- {}: {}".format(header, fun(response)))
+if __name__ == "__main__":
+    response = requests.get("https://intranet.hbtn.io/status")
+    print("Body response:")
+    for header, fun in actions:
+        print("\t- {}: {}".format(header, fun(response)))
