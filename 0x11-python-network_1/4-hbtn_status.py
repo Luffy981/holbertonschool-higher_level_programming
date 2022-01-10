@@ -8,7 +8,6 @@ actions = [
         ("content", lambda html: html),
     ]
 response = requests.get("https://intranet.hbtn.io/status")
-response = html = response.read()
 print("Body response:")
 for header, fun in actions:
-    print("\t- {}: {}".format(header, fun(html)))  
+    print("\t- {}: {}".format(header, fun(response)))
